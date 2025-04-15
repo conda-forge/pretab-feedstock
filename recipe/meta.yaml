@@ -1,5 +1,5 @@
 {% set name = "pretab" %}
-{% set version = "0.0.1" %}
+{% set version = "0.0.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/OpenTabular/PreTab/archive/v{{ version }}.tar.gz
-  sha256: 2f7958f5052b3d2dd20365a8b98cc58da5088ba1bcfe6b2017e2283bf090e8af
+  sha256: 9a6a663521b2d2d39f9c5f0e777596fb391f103dc277cc79d7a96067f4b82ddd
 
 build:
   noarch: python
