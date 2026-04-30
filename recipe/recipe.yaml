@@ -1,0 +1,47 @@
+schema_version: 1
+
+context:
+  name: pretab
+  version: "0.0.2"
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://github.com/OpenTabular/PreTab/archive/v${{ version }}.tar.gz
+  sha256: 9a6a663521b2d2d39f9c5f0e777596fb391f103dc277cc79d7a96067f4b82ddd
+
+build:
+  number: 1
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+
+requirements:
+  host:
+    - python ${{ python_min }}.*
+    - pip
+    - setuptools
+  run:
+    - python >=${{ python_min }}
+    - numpy
+    - scikit-learn
+    - scipy
+    - pandas
+
+tests:
+  - python:
+      imports:
+        - pretab
+      pip_check: true
+      python_version: ${{ python_min }}
+
+about:
+  summary: A python package for preprocessing tabular data
+  license: MIT
+  license_file: LICENSE
+  homepage: https://github.com/OpenTabular/PreTab
+
+extra:
+  recipe-maintainers:
+    - jan-janssen
